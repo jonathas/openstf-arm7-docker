@@ -1,0 +1,27 @@
+version: "2"
+services:
+    stf:
+        image: openstf/stf-armv7l
+        privileged: true
+        container_name: openstf
+        depends_on:
+            - db
+            - adb
+        network_mode: host
+        command: "stf local --public-ip 172.20.2.70"
+
+    db:
+        image: generalmeow/rethinkdb:1.0-arm
+        container_name: openstf_db
+        volumes:
+            - "./rethinkdb_data:/data"
+        network_mode: host
+    adb:
+        image: mitchtech/arm-adb
+        privileged: true
+        container_name: adb
+        network_mode: host
+networks:
+    default:
+        external:
+            name: "host"

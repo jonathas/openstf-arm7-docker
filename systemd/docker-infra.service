@@ -1,0 +1,12 @@
+[Unit]
+Description=Docker infra
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/local/bin/docker-compose -f /home/pi/docker-compose.yml up
+ExecStop=/usr/local/bin/docker-compose -f /home/pi/docker-compose.yml stop
+
+[Install]
+WantedBy=default.target
