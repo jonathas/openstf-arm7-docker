@@ -1,6 +1,6 @@
 # Smartphone Test Farm using Docker on Raspberry Pi
 
-This docker-compose config contains open stf, rethinkdb and adb.
+This docker-compose config contains [openstf](https://openstf.io/), rethinkdb and [adb](https://developer.android.com/studio/command-line/adb.html).
 
 In order to use it:
 
